@@ -93,6 +93,8 @@ class LoadingIndicator extends StatelessWidget {
   /// Animation status, true will pause the animation, default is false
   final bool pause;
 
+  final bool twoColorLine;
+
   const LoadingIndicator({
     Key? key,
     required this.indicatorType,
@@ -101,6 +103,7 @@ class LoadingIndicator extends StatelessWidget {
     this.strokeWidth,
     this.pathBackgroundColor,
     this.pause = false,
+    this.twoColorLine = false,
   }) : super(key: key);
 
   @override
@@ -119,6 +122,7 @@ class LoadingIndicator extends StatelessWidget {
         strokeWidth: strokeWidth,
         pathBackgroundColor: pathBackgroundColor,
         pause: pause,
+        twoColorLine: twoColorLine,
       ),
       child: AspectRatio(
         aspectRatio: 1,

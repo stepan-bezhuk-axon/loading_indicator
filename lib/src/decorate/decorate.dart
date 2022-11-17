@@ -20,12 +20,15 @@ class DecorateData {
   /// Animation status, true will pause the animation
   final bool pause;
 
+  final bool twoColorLine;
+
   const DecorateData({
     required this.indicator,
     required this.colors,
     this.backgroundColor,
     double? strokeWidth,
     this.pathBackgroundColor,
+    this.twoColorLine = false,
     required this.pause,
   })  : _strokeWidth = strokeWidth,
         assert(colors.length > 0);
@@ -44,7 +47,8 @@ class DecorateData {
           _deepEq(colors, other.colors) &&
           _strokeWidth == other._strokeWidth &&
           pathBackgroundColor == other.pathBackgroundColor &&
-          pause == other.pause;
+          pause == other.pause &&
+          twoColorLine == other.twoColorLine;
 
   @override
   int get hashCode =>
@@ -53,11 +57,12 @@ class DecorateData {
       colors.hashCode ^
       _strokeWidth.hashCode ^
       pathBackgroundColor.hashCode ^
-      pause.hashCode;
+      pause.hashCode ^
+      twoColorLine.hashCode;
 
   @override
   String toString() {
-    return 'DecorateData{backgroundColor: $backgroundColor, indicator: $indicator, colors: $colors, strokeWidth: $_strokeWidth, pathBackgroundColor: $pathBackgroundColor, pause: $pause}';
+    return 'DecorateData{backgroundColor: $backgroundColor, indicator: $indicator, colors: $colors, strokeWidth: $_strokeWidth, pathBackgroundColor: $pathBackgroundColor, pause: $pause, twoColorLine: $twoColorLine}';
   }
 }
 

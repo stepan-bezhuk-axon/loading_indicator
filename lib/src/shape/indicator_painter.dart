@@ -36,7 +36,13 @@ class IndicatorShapeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final DecorateData decorateData = DecorateContext.of(context)!.decorateData;
-    final color = decorateData.colors[index % decorateData.colors.length];
+
+    late final Color color;
+    if (decorateData.twoColorLine) {
+      color = index > 3 ? decorateData.colors.first : decorateData.colors.last;
+    } else {
+      color = decorateData.colors[index % decorateData.colors.length];
+    }
 
     return Container(
       constraints: const BoxConstraints(
